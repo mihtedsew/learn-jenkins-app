@@ -93,6 +93,17 @@ pipeline {
             }
         }
 
+        stage('approval') {
+            steps {
+               
+                
+                timeout(10) {
+                    
+                     input 'Approve'
+                }
+            }
+        }
+
 
 
         stage('Deploy prod') {
