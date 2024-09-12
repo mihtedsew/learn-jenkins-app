@@ -83,13 +83,12 @@ pipeline {
         stage('Deploy staging') {
             agent {
                 docker {
-                    image 'node:18-alpine'
+                    image 'image 'my-playwright''
                     reuseNode true
                 }
             }
             steps {
                 sh '''
-                    npm install netlify-cli node-jq
                     node_modules/.bin/netlify --version
                     echo "Deploying to staging. Site ID: $NETLIFY_SITE_ID"
                     node_modules/.bin/netlify status
@@ -144,13 +143,12 @@ pipeline {
         stage('Deploy prod') {
             agent {
                 docker {
-                    image 'node:18-alpine'
+                    image 'my-playwright'
                     reuseNode true
                 }
             }
             steps {
                 sh '''
-                    npm install netlify-cli
                     node_modules/.bin/netlify --version
                     echo "Deploying to production. Site ID: $NETLIFY_SITE_ID"
                     node_modules/.bin/netlify status
