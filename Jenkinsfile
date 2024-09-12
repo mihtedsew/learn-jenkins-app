@@ -7,6 +7,7 @@ pipeline {
     }
 
     stages {
+        /*
 
         stage('Build') {
             agent {
@@ -26,6 +27,7 @@ pipeline {
                 '''
             }
         }
+        */
 
         stage('Tests') {
             parallel {
